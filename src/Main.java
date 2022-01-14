@@ -3,7 +3,6 @@ import draw.PaintPanelListener;
 import java.awt.*;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 
 public class Main {
     public static void main(String[] args) {

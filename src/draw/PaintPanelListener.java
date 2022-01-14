@@ -9,6 +9,8 @@ public class PaintPanelListener implements MouseInputListener {
 
     private final JPanel paintPanel;
 
+    private static final int OVAL_SIZE = 5;
+
     public PaintPanelListener(JPanel paintPanel){
         this.paintPanel = paintPanel;
     }
@@ -41,7 +43,7 @@ public class PaintPanelListener implements MouseInputListener {
     @Override
     public void mouseDragged(MouseEvent e) {
         Graphics graphics = paintPanel.getGraphics();
-        graphics.fillOval(e.getX(), e.getY(),5,5);
+        graphics.fillOval(e.getX(), e.getY(),OVAL_SIZE,OVAL_SIZE);
     }
 
     @Override
