@@ -1,3 +1,5 @@
+import color.ColorItemListener;
+import color.ColorSelectItem;
 import draw.PaintPanelListener;
 
 import java.awt.*;
@@ -24,8 +26,13 @@ public class Main {
         menuPanel.setBackground(Color.gray);
 
         //色の選択ボタン
-        String[] colors = {"Black", "Red"};
-        JComboBox<String> colorMenuButton = new JComboBox<>(colors);
+        ColorSelectItem[] colors = {
+                new ColorSelectItem("Black", Color.BLACK),
+                new ColorSelectItem("Red", Color.RED)
+        };
+        // toStringの確認
+        System.out.println(Color.BLACK.toString());
+        JComboBox<ColorSelectItem> colorMenuButton = new JComboBox<>(colors);
         menuPanel.add(colorMenuButton);
 
         frame.add(menuPanel);
