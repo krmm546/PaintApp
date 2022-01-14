@@ -3,6 +3,7 @@ package draw;
 import color.ColorItemListener;
 import draw.tool.DrawTool;
 import draw.tool.basic.BasicPen;
+import draw.tool.straightline.StraightLinePen;
 
 import javax.swing.*;
 import javax.swing.event.MouseInputListener;
@@ -61,6 +62,9 @@ public class PaintPanelListener implements MouseInputListener {
     }
 
     private DrawTool drawTool() {
-        return new BasicPen();
+        return pen;
     }
+
+    // 削除予定
+    private StraightLinePen pen = new StraightLinePen();
 }
