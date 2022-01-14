@@ -33,7 +33,16 @@ public class Main {
         //色の選択ボタン
         ColorSelectItem[] colors = {
                 new ColorSelectItem("Black", Color.BLACK),
-                new ColorSelectItem("Red", Color.RED)
+                new ColorSelectItem("Red", Color.RED),
+                new ColorSelectItem("Orange", Color.ORANGE),
+                new ColorSelectItem("Yellow", Color.YELLOW),
+                new ColorSelectItem("Lime", Color.GREEN),
+                new ColorSelectItem("Green", new Color(0, 128,0)),
+                new ColorSelectItem("aqua", new Color(0,255,255)),
+                new ColorSelectItem("Blue", Color.BLUE),
+                new ColorSelectItem("Purple", new Color(128,0,128)),
+                new ColorSelectItem("Pink", Color.PINK),
+                new ColorSelectItem("White", Color.WHITE),
         };
 
         JComboBox<ColorSelectItem> colorMenuButton = new JComboBox<>(colors);
