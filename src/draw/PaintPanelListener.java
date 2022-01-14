@@ -1,5 +1,7 @@
 package draw;
 
+import color.ColorItemListener;
+
 import javax.swing.*;
 import javax.swing.event.MouseInputListener;
 import java.awt.*;
@@ -8,11 +10,13 @@ import java.awt.event.MouseEvent;
 public class PaintPanelListener implements MouseInputListener {
 
     private final JPanel paintPanel;
+    private final ColorItemListener colorItemListener;
 
     private static final int OVAL_SIZE = 5;
 
-    public PaintPanelListener(JPanel paintPanel){
+    public PaintPanelListener(JPanel paintPanel, ColorItemListener colorItemListener){
         this.paintPanel = paintPanel;
+        this.colorItemListener = colorItemListener;
     }
 
     @Override
@@ -42,12 +46,17 @@ public class PaintPanelListener implements MouseInputListener {
 
     @Override
     public void mouseDragged(MouseEvent e) {
-        Graphics graphics = paintPanel.getGraphics();
-        graphics.fillOval(e.getX(), e.getY(),OVAL_SIZE,OVAL_SIZE);
+        graphics().fillOval(e.getX(), e.getY(),OVAL_SIZE,OVAL_SIZE);
     }
 
     @Override
     public void mouseMoved(MouseEvent e) {
 
+    }
+
+    private Graphics graphics(){
+        Graphics graphics = paintPanel.getGraphics();
+        graphics.setColor(colorItemListener.getColor());
+        return graphics;
     }
 }
