@@ -6,6 +6,8 @@ import draw.tool.PenSelectItem;
 import draw.tool.basic.BasicPen;
 import draw.tool.straightline.StraightLinePen;
 import draw.tool.triangle.TrianglePen;
+import thickness.ThicknessItemListener;
+import thickness.ThicknessSelectItem;
 
 import java.awt.*;
 
@@ -65,12 +67,24 @@ public class Main {
 
         frame.add(menuPanel);
 
+        // 太さの選択ボタン
+        ThicknessSelectItem[] thicknesses = {
+                new ThicknessSelectItem("Light", 1),
+                new ThicknessSelectItem("Normal", 3),
+                new ThicknessSelectItem("Bold", 10),
+        };
+
+        JComboBox<ThicknessSelectItem> thicknessMenuButton = new JComboBox<>(thicknesses);
+        ThicknessItemListener thicknessItemListener = new ThicknessItemListener();
+        thicknessMenuButton.addItemListener(thicknessItemListener);
+        menuPanel.add(thicknessMenuButton);
+
         // 描画パレット
         JPanel paintPanel = new JPanel();
         paintPanel.setBounds(0,menuHeight, frameLength,frameLength - menuHeight);
 
         // 描画リスナー
-        PaintPanelListener paintPanelListener = new PaintPanelListener(paintPanel, colorItemListener, penItemListener);
+        PaintPanelListener paintPanelListener = new PaintPanelListener(paintPanel, colorItemListener, penItemListener, thicknessItemListener);
         paintPanel.addMouseListener(paintPanelListener);
         paintPanel.addMouseMotionListener(paintPanelListener);
 

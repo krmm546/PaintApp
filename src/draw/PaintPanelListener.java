@@ -3,8 +3,7 @@ package draw;
 import color.ColorItemListener;
 import draw.tool.DrawTool;
 import draw.tool.PenItemListener;
-import draw.tool.basic.BasicPen;
-import draw.tool.straightline.StraightLinePen;
+import thickness.ThicknessItemListener;
 
 import javax.swing.*;
 import javax.swing.event.MouseInputListener;
@@ -16,11 +15,18 @@ public class PaintPanelListener implements MouseInputListener {
     private final JPanel paintPanel;
     private final ColorItemListener colorItemListener;
     private final PenItemListener penItemListener;
+    private final ThicknessItemListener thicknessItemListener;
 
-    public PaintPanelListener(JPanel paintPanel, ColorItemListener colorItemListener, PenItemListener penItemListener){
+    public PaintPanelListener(
+            JPanel paintPanel,
+            ColorItemListener colorItemListener,
+            PenItemListener penItemListener,
+            ThicknessItemListener thicknessItemListener
+    ) {
         this.paintPanel = paintPanel;
         this.colorItemListener = colorItemListener;
         this.penItemListener = penItemListener;
+        this.thicknessItemListener = thicknessItemListener;
     }
 
     @Override
@@ -60,6 +66,7 @@ public class PaintPanelListener implements MouseInputListener {
 
     private Graphics graphics(){
         Graphics graphics = paintPanel.getGraphics();
+        thicknessItemListener.changeThickness(graphics);
         graphics.setColor(colorItemListener.getColor());
         return graphics;
     }
