@@ -11,12 +11,12 @@ public class StraightLinePen implements DrawTool {
     private int y;
 
     public DrawTool init() {
-        initialisePosition();
+        initializePosition();
         return this;
     }
 
     public StraightLinePen() {
-        initialisePosition();
+        initializePosition();
     }
 
     private static final int initialPosition = -1;
@@ -31,14 +31,14 @@ public class StraightLinePen implements DrawTool {
             return;
         }
         graphics.drawLine(x,y, e.getX(), e.getY());
-        initialisePosition();
+        initializePosition();
     }
 
     private boolean isFirst(){
         return x == initialPosition || y == initialPosition;
     }
 
-    private void initialisePosition(){
+    private void initializePosition(){
         setPosition(initialPosition,initialPosition);
     }
 
