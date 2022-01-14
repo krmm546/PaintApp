@@ -1,3 +1,5 @@
+import draw.PaintPanelListener;
+
 import java.awt.*;
 
 import javax.swing.*;
@@ -24,6 +26,10 @@ public class Main {
 
         JPanel paintPanel = new JPanel();
         paintPanel.setBounds(0,menuHeight, frameLength,frameLength - menuHeight);
+
+        PaintPanelListener paintPanelListener = new PaintPanelListener(paintPanel);
+        paintPanel.addMouseListener(paintPanelListener);
+        paintPanel.addMouseMotionListener(paintPanelListener);
         frame.add(paintPanel);
 
 
