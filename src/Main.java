@@ -24,7 +24,7 @@ public class Main {
         menuPanel.setBackground(Color.gray);
 
         //色の選択ボタン
-        String[] colors = {"赤", "黒"};
+        String[] colors = {"Black", "Red"};
         JComboBox<String> colorMenuButton = new JComboBox<>(colors);
         menuPanel.add(colorMenuButton);
 
