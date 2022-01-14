@@ -4,17 +4,17 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 
 public interface DrawTool {
-    void mouseClicked(MouseEvent e);
+    void mouseClicked(MouseEvent e, Graphics graphics);
 
-    void mousePressed(MouseEvent e);
+    void mousePressed(MouseEvent e, Graphics graphics);
 
-    void mouseReleased(MouseEvent e);
+    void mouseReleased(MouseEvent e, Graphics graphics);
 
-    void mouseEntered(MouseEvent e);
+    void mouseEntered(MouseEvent e, Graphics graphics);
 
-    void mouseExited(MouseEvent e);
+    void mouseExited(MouseEvent e, Graphics graphics);
 
-    void mouseDragged(MouseEvent e);
+    void mouseDragged(MouseEvent e, Graphics graphics);
 
-    void mouseMoved(MouseEvent e);
+    void mouseMoved(MouseEvent e, Graphics graphics);
 }
