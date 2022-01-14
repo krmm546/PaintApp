@@ -10,6 +10,11 @@ public class StraightLinePen implements DrawTool {
     private int x;
     private int y;
 
+    public DrawTool init() {
+        initialisePosition();
+        return this;
+    }
+
     public StraightLinePen() {
         initialisePosition();
     }

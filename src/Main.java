@@ -1,6 +1,10 @@
 import color.ColorItemListener;
 import color.ColorSelectItem;
 import draw.PaintPanelListener;
+import draw.tool.PenItemListener;
+import draw.tool.PenSelectItem;
+import draw.tool.basic.BasicPen;
+import draw.tool.straightline.StraightLinePen;
 
 import java.awt.*;
 
@@ -36,6 +40,18 @@ public class Main {
         colorMenuButton.addItemListener(colorItemListener);
         menuPanel.add(colorMenuButton);
 
+        // ペンの選択ボタン
+        PenSelectItem[] pens = {
+                new PenSelectItem("Basic Pen", new BasicPen()),
+                new PenSelectItem("Straight Line Pen",new StraightLinePen())
+        };
+
+        JComboBox<PenSelectItem> penMenuButton = new JComboBox<>(pens);
+        PenItemListener penItemListener = new PenItemListener();
+        penMenuButton.addItemListener(penItemListener);
+        menuPanel.add(penMenuButton);
+
+
         frame.add(menuPanel);
 
         // 描画パレット
@@ -43,7 +59,7 @@ public class Main {
         paintPanel.setBounds(0,menuHeight, frameLength,frameLength - menuHeight);
 
         // 描画リスナー
-        PaintPanelListener paintPanelListener = new PaintPanelListener(paintPanel, colorItemListener);
+        PaintPanelListener paintPanelListener = new PaintPanelListener(paintPanel, colorItemListener, penItemListener);
         paintPanel.addMouseListener(paintPanelListener);
         paintPanel.addMouseMotionListener(paintPanelListener);
 

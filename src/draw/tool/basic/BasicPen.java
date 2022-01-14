@@ -6,8 +6,12 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 
 public class BasicPen implements DrawTool {
-    
+
     private static final int OVAL_SIZE = 5;
+
+    public BasicPen init() {
+        return this;
+    }
 
     public void mouseClicked(MouseEvent e, Graphics graphics) {}
 

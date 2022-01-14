@@ -4,6 +4,9 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 
 public interface DrawTool {
+
+    DrawTool init();
+
     void mouseClicked(MouseEvent e, Graphics graphics);
 
     void mousePressed(MouseEvent e, Graphics graphics);

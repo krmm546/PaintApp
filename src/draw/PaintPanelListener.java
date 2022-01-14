@@ -2,6 +2,7 @@ package draw;
 
 import color.ColorItemListener;
 import draw.tool.DrawTool;
+import draw.tool.PenItemListener;
 import draw.tool.basic.BasicPen;
 import draw.tool.straightline.StraightLinePen;
 
@@ -14,10 +15,12 @@ public class PaintPanelListener implements MouseInputListener {
 
     private final JPanel paintPanel;
     private final ColorItemListener colorItemListener;
+    private final PenItemListener penItemListener;
 
-    public PaintPanelListener(JPanel paintPanel, ColorItemListener colorItemListener){
+    public PaintPanelListener(JPanel paintPanel, ColorItemListener colorItemListener, PenItemListener penItemListener){
         this.paintPanel = paintPanel;
         this.colorItemListener = colorItemListener;
+        this.penItemListener = penItemListener;
     }
 
     @Override
@@ -62,9 +65,6 @@ public class PaintPanelListener implements MouseInputListener {
     }
 
     private DrawTool drawTool() {
-        return pen;
+        return penItemListener.getPen();
     }
-
-    // 削除予定
-    private StraightLinePen pen = new StraightLinePen();
 }
