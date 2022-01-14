@@ -5,6 +5,7 @@ import draw.tool.PenItemListener;
 import draw.tool.PenSelectItem;
 import draw.tool.basic.BasicPen;
 import draw.tool.straightline.StraightLinePen;
+import draw.tool.triangle.TrianglePen;
 
 import java.awt.*;
 
@@ -43,7 +44,8 @@ public class Main {
         // ペンの選択ボタン
         PenSelectItem[] pens = {
                 new PenSelectItem("Basic Pen", new BasicPen()),
-                new PenSelectItem("Straight Line Pen",new StraightLinePen())
+                new PenSelectItem("Straight Line Pen", new StraightLinePen()),
+                new PenSelectItem("Triangle Pen", new TrianglePen())
         };
 
         JComboBox<PenSelectItem> penMenuButton = new JComboBox<>(pens);
