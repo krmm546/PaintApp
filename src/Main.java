@@ -33,6 +33,8 @@ public class Main {
         // toStringの確認
         System.out.println(Color.BLACK.toString());
         JComboBox<ColorSelectItem> colorMenuButton = new JComboBox<>(colors);
+        ColorItemListener colorItemListener = new ColorItemListener();
+        colorMenuButton.addItemListener(colorItemListener);
         menuPanel.add(colorMenuButton);
 
         frame.add(menuPanel);
@@ -42,7 +44,7 @@ public class Main {
         paintPanel.setBounds(0,menuHeight, frameLength,frameLength - menuHeight);
 
         // 描画リスナー
-        PaintPanelListener paintPanelListener = new PaintPanelListener(paintPanel);
+        PaintPanelListener paintPanelListener = new PaintPanelListener(paintPanel, colorItemListener);
         paintPanel.addMouseListener(paintPanelListener);
         paintPanel.addMouseMotionListener(paintPanelListener);
 
