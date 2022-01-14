@@ -22,6 +22,12 @@ public class Main {
         JPanel menuPanel = new JPanel();
         menuPanel.setBounds(0, 0, frameLength, menuHeight);
         menuPanel.setBackground(Color.gray);
+
+        //色の選択ボタン
+        String[] colors = {"赤", "黒"};
+        JComboBox<String> colorMenuButton = new JComboBox<>(colors);
+        menuPanel.add(colorMenuButton);
+
         frame.add(menuPanel);
 
         // 描画パレット
