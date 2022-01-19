@@ -8,6 +8,7 @@ import draw.tool.eraser.Eraser;
 import draw.tool.rainbow.RainbowPen;
 import draw.tool.straightline.StraightLinePen;
 import draw.tool.triangle.TrianglePen;
+import initialize.InitializeListener;
 import menubar.MenuTab;
 import thickness.ThicknessItemListener;
 import thickness.ThicknessSelectItem;
@@ -91,6 +92,11 @@ public class Main {
         ThicknessItemListener thicknessItemListener = new ThicknessItemListener();
         thicknessMenuButton.addItemListener(thicknessItemListener);
         thicknessMenuButton.setMenuBar(menuBar);
+
+        //初期化ボタン
+        JButton initializeButton = new JButton("Initialize");
+        initializeButton.addActionListener(new InitializeListener(paintPanel));
+        menuPanel.add(initializeButton);
 
         // 描画リスナー
         PaintPanelListener paintPanelListener = new PaintPanelListener(paintPanel, colorItemListener, penItemListener, thicknessItemListener);
