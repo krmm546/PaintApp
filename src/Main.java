@@ -4,6 +4,7 @@ import draw.PaintPanelListener;
 import draw.tool.PenItemListener;
 import draw.tool.PenSelectItem;
 import draw.tool.basic.BasicPen;
+import draw.tool.eraser.Eraser;
 import draw.tool.straightline.StraightLinePen;
 import draw.tool.triangle.TrianglePen;
 import menubar.MenuTab;
@@ -33,7 +34,9 @@ public class Main {
         menuPanel.setBounds(0, 0, frameLength, menuHeight);
         menuPanel.setBackground(Color.gray);
 
-
+        // 描画パレット
+        JPanel paintPanel = new JPanel();
+        paintPanel.setBounds(0,menuHeight, frameLength,frameLength - menuHeight);
 
         //色の選択ボタン
         ColorSelectItem[] colors = {
@@ -63,7 +66,13 @@ public class Main {
         PenSelectItem[] pens = {
                 new PenSelectItem("Basic Pen", new BasicPen()),
                 new PenSelectItem("Straight Line Pen", new StraightLinePen()),
-                new PenSelectItem("Triangle Pen", new TrianglePen())
+                new PenSelectItem("Triangle Pen", new TrianglePen()),
+                new PenSelectItem("Eraser",
+                        new Eraser(
+                                paintPanel.getBackground(),
+                                new BasicPen()
+                        )
+                ),
         };
 
         JComboBox<PenSelectItem> penMenuButton = new JComboBox<>(pens);
@@ -85,10 +94,6 @@ public class Main {
         ThicknessItemListener thicknessItemListener = new ThicknessItemListener();
         thicknessMenuButton.addItemListener(thicknessItemListener);
         thicknessMenuButton.setMenuBar(menuBar);
-
-        // 描画パレット
-        JPanel paintPanel = new JPanel();
-        paintPanel.setBounds(0,menuHeight, frameLength,frameLength - menuHeight);
 
         // 描画リスナー
         PaintPanelListener paintPanelListener = new PaintPanelListener(paintPanel, colorItemListener, penItemListener, thicknessItemListener);
