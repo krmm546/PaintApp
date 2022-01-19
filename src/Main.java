@@ -6,6 +6,7 @@ import draw.tool.PenSelectItem;
 import draw.tool.basic.BasicPen;
 import draw.tool.eraser.Eraser;
 import draw.tool.rainbow.RainbowPen;
+import draw.tool.stamp.CircleStamp;
 import draw.tool.straightline.StraightLinePen;
 import draw.tool.triangle.TrianglePen;
 import initialize.InitializeListener;
@@ -69,8 +70,9 @@ public class Main {
                 new PenSelectItem("Basic Pen", new BasicPen()),
                 new PenSelectItem("Straight Line Pen", new StraightLinePen()),
                 new PenSelectItem("Triangle Pen", new TrianglePen()),
-                new PenSelectItem("Rainbow",new RainbowPen(new BasicPen())),
-                new PenSelectItem("Eraser", new Eraser(paintPanel.getBackground(), new BasicPen())),
+                new PenSelectItem("Rainbow", new RainbowPen(new BasicPen())),
+                new PenSelectItem("CircleStamp", new CircleStamp()),
+                new PenSelectItem("Eraser", new Eraser(paintPanel.getBackground(), new BasicPen()))
         };
 
         JComboBox<PenSelectItem> penMenuButton = new JComboBox<>(pens);
