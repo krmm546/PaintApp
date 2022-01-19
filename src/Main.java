@@ -4,6 +4,7 @@ import draw.PaintPanelListener;
 import draw.tool.PenItemListener;
 import draw.tool.PenSelectItem;
 import draw.tool.basic.BasicPen;
+import draw.tool.dashedline.DashedLine;
 import draw.tool.eraser.Eraser;
 import draw.tool.rainbow.RainbowPen;
 import draw.tool.stamp.CircleStamp;
@@ -70,6 +71,7 @@ public class Main {
                 new PenSelectItem("Basic Pen", new BasicPen()),
                 new PenSelectItem("Straight Line Pen", new StraightLinePen()),
                 new PenSelectItem("Triangle Pen", new TrianglePen()),
+                new PenSelectItem("Dashed Line", new DashedLine()),
                 new PenSelectItem("Rainbow", new RainbowPen(new BasicPen())),
                 new PenSelectItem("CircleStamp", new CircleStamp()),
                 new PenSelectItem("Eraser", new Eraser(paintPanel.getBackground(), new BasicPen()))
