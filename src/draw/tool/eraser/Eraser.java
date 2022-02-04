@@ -7,11 +7,11 @@ import java.awt.event.MouseEvent;
 
 public class Eraser implements DrawTool {
 
-    private final Color backgroundColor;
+    private final Container background;
     private  final DrawTool basicPen;
 
-    public Eraser(Color backgroundColor, DrawTool basicPen){
-        this.backgroundColor = backgroundColor;
+    public Eraser(Container background, DrawTool basicPen){
+        this.background = background;
         this.basicPen = basicPen;
     }
 
@@ -56,7 +56,7 @@ public class Eraser implements DrawTool {
     }
 
     private void setColor(Graphics graphics){
-        graphics.setColor(backgroundColor);
+        graphics.setColor(background.getBackground());
     }
 
 }

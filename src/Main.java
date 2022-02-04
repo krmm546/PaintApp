@@ -8,7 +8,7 @@ import draw.tool.dashedline.DashedLine;
 import draw.tool.doubleline.DoubleLine;
 import draw.tool.eraser.Eraser;
 import draw.tool.rainbow.RainbowPen;
-import draw.tool.stamp.CircleStamp;
+import draw.tool.stamp.LovelyStamp;
 import draw.tool.straightline.StraightLinePen;
 import draw.tool.triangle.TrianglePen;
 import initialize.InitializeListener;
@@ -75,8 +75,8 @@ public class Main {
                 new PenSelectItem("Double Line", new DoubleLine()),
                 new PenSelectItem("Dashed Line", new DashedLine()),
                 new PenSelectItem("Rainbow", new RainbowPen(new BasicPen())),
-                new PenSelectItem("CircleStamp", new CircleStamp()),
-                new PenSelectItem("Eraser", new Eraser(paintPanel.getBackground(), new BasicPen()))
+                new PenSelectItem("LovelyStamp", new LovelyStamp()),
+                new PenSelectItem("Eraser", new Eraser(paintPanel, new BasicPen()))
         };
 
         JComboBox<PenSelectItem> penMenuButton = new JComboBox<>(pens);
@@ -101,7 +101,9 @@ public class Main {
 
         //初期化ボタン
         JButton initializeButton = new JButton("Initialize");
-        initializeButton.addActionListener(new InitializeListener(paintPanel));
+        InitializeListener initializeListener = new InitializeListener(paintPanel);
+        initializeButton.addActionListener(initializeListener);
+        menuTab.addItemListener(initializeListener.getColorItemListener());
         menuPanel.add(initializeButton);
 
         // 描画リスナー
